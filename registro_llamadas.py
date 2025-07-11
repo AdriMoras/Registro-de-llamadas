@@ -19,7 +19,7 @@ def seleccionar_usuario_gui():
     etiqueta = ttk.Label(ventana, text="Selecciona un usuario:")
     etiqueta.pack(pady=10)
 
-    usuarios = ["Alice", "Bob", "Charlie", "David"]
+    usuarios = ["01", "02", "03", "04"]
     combo = ttk.Combobox(ventana, values=usuarios, state="readonly")
     combo.pack(pady=5)
     combo.set(usuarios[0])  # Establece una selección por defecto
@@ -37,22 +37,16 @@ import datetime
 import os
 
 # --- Configuración ---
-NOMBRE_ARCHIVO = 'registro_llamadas_cfe.csv'
-CABECERAS = ['Fecha y Hora', 'Ejecutvo', 'Nombre de titular', 'Numero de telefono', 'ID de Monedero', 'Folio de monedero', 'Tipo de Consulta', 'Estatus', 'Notas Adicionales']
+NOMBRE_ARCHIVO = 'registro_llamadas_El club.csv'
+CABECERAS = ['Fecha y Hora', 'Estacion', 'Nombre del cliente', 'Numero de telefono', 'ID de Monedero', 'Tipo de Consulta', 'Estatus', 'Notas Adicionales']
+
 # Opciones para tipificar la llamada
 TIPOS_LLAMADA = [
-    "Consulta de saldo",
-    "Consulta de NIP",
-    "Error al realizar compra online",
-    "Error al realizar compra en sucursal",
-    "Cargo doble o triple",
+    "Consulta de puntos",
     "Informacion de sucursales",
     "seguimiento a pedido",
-    "reemplazo",
-    "Asesoría sobre sucursales físicas y en línea",
-    "Vigencia",
-    "levantar reporte",
-    "Bloqueo de tarjeta por robo o extravío"
+    "pedido",
+    "cotizacion"
 ]
 
 # Opciones para el estatus de la llamada
@@ -102,25 +96,22 @@ def registrar_llamada():
     id_nombre = input("Nombre: ")
 
     # 3. Obtener ID del Monedero
-    id_monedero = input("16 digitos de monedero Club: ")
+    id_monedero = input("8 digitos de monedero Club: ")
 
-    # 4. Obtener folio 
-    id_folio = input("Folio: ")
-
-    # 5. Obtener Tipo de Consulta
+    # 4. Obtener Tipo de Consulta
     tipo_consulta = obtener_opcion_valida("\nSelecciona el tipo de consulta:", TIPOS_LLAMADA)
 
-    # 6. Obtener Notas adicionales
+    # 5. Obtener Notas adicionales
     notas = input("Añade notas adicionales (o presiona Enter para dejar en blanco): ")
 
-    # 7. Obtener Estatus de la llamada
+    # 6. Obtener Estatus de la llamada
     estatus = obtener_opcion_valida("\nSelecciona el estatus de la llamada:", ESTATUS_LLAMADA)
 
-    # 8. Obtener fecha y hora actual
+    # 7. Obtener fecha y hora actual
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    # 9. Crear la fila de datos y guardarla
-    fila = [timestamp, id_telefono, id_nombre, id_monedero, id_folio, tipo_consulta, estatus, notas]
+    # 8. Crear la fila de datos y guardarla
+    fila = [timestamp, id_telefono, id_nombre, id_monedero, tipo_consulta, estatus, notas]
     
     with open(NOMBRE_ARCHIVO, mode='a', newline='', encoding='utf-8') as archivo_csv:
         escritor = csv.writer(archivo_csv)
@@ -139,7 +130,7 @@ def main():
     
     print("▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪")
     print("   Bienvenido al Sistema de Registro de Llamadas      ")
-    print("               〰 El club 〰                      ")
+    print("                   〰 El club 〰                      ")
     print("▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪")
 
     while True:
