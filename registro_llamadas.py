@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-""" hola """
+
 def seleccionar_usuario_gui():
     """
     Muestra una ventana con un combobox para seleccionar un usuario.
