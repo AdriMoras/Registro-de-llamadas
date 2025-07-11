@@ -102,7 +102,7 @@ def registrar_llamada():
     id_nombre = input("Nombre: ")
 
     # 3. Obtener ID del Monedero
-    id_monedero = input("16 digitos de monedero Cfe: ")
+    id_monedero = input("16 digitos de monedero Club: ")
 
     # 4. Obtener folio 
     id_folio = input("Folio: ")
@@ -139,7 +139,7 @@ def main():
     
     print("▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪")
     print("   Bienvenido al Sistema de Registro de Llamadas      ")
-    print("               〰 Monedero CFE 〰                      ")
+    print("               〰 El club 〰                      ")
     print("▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪")
 
     while True:
