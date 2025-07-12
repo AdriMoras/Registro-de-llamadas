@@ -1,28 +1,28 @@
 import tkinter as tk
 from tkinter import ttk
 
-def seleccionar_usuario_gui():
+def seleccionar_Estacion_gui():
     """
-    Muestra una ventana con un combobox para seleccionar un usuario.
+    Muestra una ventana con un combobox para seleccionar una estacion.
     """
     def mostrar_seleccion():
         seleccion = combo.get()
         if seleccion:
-            print(f"Usuario seleccionado: {seleccion}")
+            print(f"Estacion seleccionado: {seleccion}")
             ventana.destroy()  # Cierra la ventana después de la selección
         else:
-            print("Por favor, selecciona un usuario.")
+            print("Por favor, selecciona una Estacion.")
 
     ventana = tk.Tk()
-    ventana.title("Seleccionar Usuario")
+    ventana.title("Seleccionar Estacion")
 
-    etiqueta = ttk.Label(ventana, text="Selecciona un usuario:")
+    etiqueta = ttk.Label(ventana, text="Selecciona una Estacion:")
     etiqueta.pack(pady=10)
 
-    usuarios = ["01", "02", "03", "04"]
-    combo = ttk.Combobox(ventana, values=usuarios, state="readonly")
+    Estacion = ["01", "02", "03", "04"]
+    combo = ttk.Combobox(ventana, values=Estacion, state="readonly")
     combo.pack(pady=5)
-    combo.set(usuarios[0])  # Establece una selección por defecto
+    combo.set(Estacion[0])  # Establece una selección por defecto
 
     boton_seleccionar = ttk.Button(ventana, text="Seleccionar", command=mostrar_seleccion)
     boton_seleccionar.pack(pady=10)
@@ -30,7 +30,7 @@ def seleccionar_usuario_gui():
     ventana.mainloop()
 
 # Ejemplo de uso
-seleccionar_usuario_gui()
+seleccionar_Estacion_gui()
 
 import csv
 import datetime
@@ -42,11 +42,11 @@ CABECERAS = ['Fecha y Hora', 'Estacion', 'Nombre del cliente', 'Numero de telefo
 
 # Opciones para tipificar la llamada
 TIPOS_LLAMADA = [
-    "Consulta de puntos",
-    "Informacion de sucursales",
+    "Pedido",
+    "Cotización",
     "seguimiento a pedido",
-    "pedido",
-    "cotizacion"
+    "Informacion de sucursales",
+    "Consulta de puntos"
 ]
 
 # Opciones para el estatus de la llamada
